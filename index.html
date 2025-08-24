@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>Halaman Login</title>
+</head>
+
+<body>
+  <div class="confetti"></div>
+  <div class="login_container">
+    <div class="emoji-bubble">🎂</div>
+    <h2>Hi 👋🏼 coba login dulu yuk!</h2>
+    <form id="loginForm" class="login_form">
+      <input type="text" id="username" placeholder="Username" autocomplete="off" />
+      <input type="password" id="password" placeholder="Password" autocomplete="off" />
+      <button type="submit" id="loginBtn">
+        <span>Login</span> <span class="btn-emoji">🤏</span>
+      </button>
+    </form>
+    <p class="login_description">
+      <span class="desc-emoji">🤫</span> pssstttt, usernamenya isi <b>"user"</b> dan passwordnya sama dengan usernamenya ya
+    </p>
+  </div>
+</body>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Main JS -->
+<script type="application/javascript" src="./scripts/index.js"></script>
+<script>
+  // GSAP Animasi masuk
+  gsap.from(".login_container", { y: 80, opacity: 0, duration: 1, ease: "back.out(1.7)" });
+  gsap.from(".emoji-bubble", { scale: 0, opacity: 0, delay: 0.5, duration: 0.7, ease: "elastic.out(1, 0.5)" });
+  // Confetti animasi sederhana
+  for (let i = 0; i < 20; i++) {
+    let conf = document.createElement('div');
+    conf.className = 'confetti-piece';
+    conf.style.left = Math.random() * 100 + 'vw';
+    conf.style.animationDelay = (Math.random() * 2) + 's';
+    document.querySelector('.confetti').appendChild(conf);
+  }
+</script>
+</html>
